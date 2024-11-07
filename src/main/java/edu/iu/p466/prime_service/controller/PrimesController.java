@@ -37,9 +37,12 @@ public class PrimesController {
                 .getContext().getAuthentication().getPrincipal();
         String username = ((Jwt) principal).getSubject();
         System.out.println(username);
-        mqSender.sendMessage(username, n, result);
+        try {
+            mqSender.sendMessage(username, n, result);
+        } catch (Exception e) {
+            logger.error(e.getMessage());
+        }
         return result;
-
     }
 
 
