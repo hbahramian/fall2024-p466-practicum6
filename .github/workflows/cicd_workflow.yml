@@ -16,6 +16,12 @@ jobs:
           - 5001:5432
         # needed because the postgres container does not provide a healthcheck
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      VERSION: ${{ github.sha }}
+      CONTAINER_REGISTRY: ${{ secrets.AZURE_CONTAINER_REGISTRY }}
+      CONTAINER_REGISTRY_UN: ${{ secrets.CONTAINER_REGISTRY_UN }}
+      CONTAINER_REGISTRY_PW: ${{ secrets.CONTAINER_REGISTRY_PW  }}
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN  }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -40,9 +46,33 @@ jobs:
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
+            
+      #
+      # Build the Docker image.
+      #
+      - name: Build
+        run: ./scripts/build-image.sh
 
-      - name: Build and push the image
-        run: |
-          docker login --username hbahramian --password ${{secrets.ACCESS_TOKEN}} ghcr.io
-          docker build -t ghcr.io/hbahramian/primes-service:latest --file Dockerfile .  
-          docker push ghcr.io/hbahramian/primes-service:latest
+      #
+      # Publish the Docker image to Github container registry.
+      #
+      - name: Publish to Github container registry
+        run: ./scripts/push-to-ghcr.sh
+      #
+      # Publish the Docker image to Azure container registry.
+      #
+      - name: Publish to Azure container registry
+        run: ./scripts/push-to-acr.sh
+
+
+      # Install Kubectl and connects it to the cluster.
+      # https://github.com/marketplace/actions/kubernetes-cli-kubectl
+      - uses: tale/kubectl-action@v1
+        with:
+             base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+
+      #
+      # Expands the configuration template and deploys the microservice.
+      #
+      - name: Deploy
+        run: ./scripts/deploy.sh
