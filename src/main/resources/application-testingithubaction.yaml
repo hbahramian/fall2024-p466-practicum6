@@ -16,6 +16,9 @@ spring:
     init:
       mode: always
       continue-on-error: true
+logging:
+  level:
+    org.springframework.jdbc: DEBUG
 
 
   rabbitmq:
