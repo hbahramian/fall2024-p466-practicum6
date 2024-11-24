@@ -39,7 +39,7 @@ jobs:
         run: mvn --batch-mode -DskipTests package
 
       - name: Run the unit tests
-        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test -Dspring.profiles.active=testingithubaction
 
       - name: Report the result of the unit tests
         uses: dorny/test-reporter@v1
