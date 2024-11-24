@@ -38,7 +38,7 @@ jobs:
       - name: Run the unit tests
         run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
-      - name: Report
+      - name: Report the result of the unit tests
         uses: dorny/test-reporter@v1
         if: always()
         with:
@@ -50,7 +50,7 @@ jobs:
       #
       # Build the Docker image.
       #
-      - name: Build
+      - name: Build the image
         run: ./scripts/build-image.sh
 
       #

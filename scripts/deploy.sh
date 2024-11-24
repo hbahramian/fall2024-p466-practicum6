@@ -17,6 +17,12 @@ set -u # or set -o nounset
 : "$CONTAINER_REGISTRY"
 : "$VERSION"
 
+envsubst < ./scripts/kubernetes/postgres-service.yaml | kubectl delete -f -
+envsubst < ./scripts/kubernetes/postgres-deployment.yaml | kubectl delete -f -
+envsubst < ./scripts/kubernetes/postgres-storage.yaml | kubectl delete -f -
+
+envsubst < ./scripts/kubernetes/deploy.yaml | kubectl delete -f -
+
 envsubst < ./scripts/kubernetes/postgres-storage.yaml | kubectl apply -f -
 envsubst < ./scripts/kubernetes/postgres-deployment.yaml | kubectl apply -f -
 envsubst < ./scripts/kubernetes/postgres-service.yaml | kubectl apply -f -
