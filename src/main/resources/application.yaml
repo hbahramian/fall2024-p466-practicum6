@@ -1,9 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5001/primes
-    username: postgres
-    password: password
-
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5001/primes}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
   devtools:
     restart:
       poll-interval: 2s
@@ -27,4 +26,5 @@ spring:
 
 server:
   port: 8085
+
 
