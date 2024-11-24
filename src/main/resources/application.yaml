@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5001/primes
-    username: postgres
-    password: password
+    url: jdbc:postgresql://p466-postgres-server.postgres.database.azure.com:5432/primes?sslmode=require
+    username: admin410
+    password: p466password321!
 
   devtools:
     restart:

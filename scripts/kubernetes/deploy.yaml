@@ -28,11 +28,10 @@ spec:
         - name: spring.datasource.url
           value: jdbc:postgresql://p466-postgres-server.postgres.database.azure.com:5432/primes?sslmode=require
         - name: spring.datasource.username
-          value: admin410@p466-postgres-server
+          value: admin410
         - name: spring.datasource.password
           value: p466password321!
-        - name: spring.jpa.hibernate.ddl-auto
-          value: update
+
 ---
 apiVersion: v1
 kind: Service
