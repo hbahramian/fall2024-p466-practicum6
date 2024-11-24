@@ -11,14 +11,15 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+        hibernate.format_sql: true
 
   sql:
     init:
       mode: always
       continue-on-error: true
-logging:
-  level:
-    org.springframework.jdbc: DEBUG
+
 
 
   rabbitmq:
@@ -30,6 +31,14 @@ logging:
 server:
   port: 8085
 
+logging:
+  level:
+    org.springframework.jdbc: DEBUG
+    org.springframework.jdbc.datasource.DriverManagerDataSource: DEBUG
+    org.springframework.boot.autoconfigure.jdbc: DEBUG
+    com:
+      zaxxer:
+        hikari=DEBUG
 
 
 
