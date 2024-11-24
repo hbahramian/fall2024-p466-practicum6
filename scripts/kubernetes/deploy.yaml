@@ -26,9 +26,9 @@ spec:
         - name: server.port
           value: "4001"
         - name: spring.datasource.url
-          value: jdbc:postgresql://p466-postgres-server.postgres.database.azure.com/primes
+          value: jdbc:postgresql://p466-postgres-server.postgres.database.azure.com:5432/primes
         - name: spring.datasource.username
-          value: admin410
+          value: admin410@p466-postgres-server
         - name: spring.datasource.password
           value: p466password321!
         - name: spring.jpa.hibernate.ddl-auto
