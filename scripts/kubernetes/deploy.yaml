@@ -23,8 +23,16 @@ spec:
         image: $CONTAINER_REGISTRY/prime-service:$VERSION
         imagePullPolicy: IfNotPresent
         env:
-        - name: PORT
-          value: "4000"
+        - name: server.port
+          value: "4001"
+        - name: spring.datasource.url
+          value: jdbc:postgresql://postgres-primes-service:5432/primes
+        - name: spring.datasource.username
+          value: postgres
+        - name: spring.datasource.password
+          value: password
+        - name: spring.jpa.hibernate.ddl-auto
+          value: update
 ---
 apiVersion: v1
 kind: Service
@@ -37,4 +45,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 4000
+      targetPort: 4001
