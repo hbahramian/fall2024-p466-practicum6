@@ -29,6 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+
       - name: Set up JDK 1.17
         uses: actions/setup-java@v2
         with:
@@ -37,6 +38,7 @@ jobs:
 
       - name: Build the package
         run: ./mvnw  --batch-mode -DskipTests package
+
 
       - name: Run the unit tests
         run: ./mvnw  test -Dspring.profiles.active="unittestingithubaction" --batch-mode -Dmaven.test.failure.ignore=true
@@ -49,6 +51,7 @@ jobs:
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
+
             
       #
       # Build the Docker image.
