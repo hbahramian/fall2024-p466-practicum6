@@ -4,15 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
+import org.springframework.core.env.StandardEnvironment;
 import org.springframework.stereotype.Component;
 
 import static org.junit.jupiter.api.Assertions.*;
-@Component
 class PrimeServiceTest {
 
-    public PrimeServiceTest(Environment environment) {
-        this.environment = environment;
-    }
+
 
     @Value("${spring.datasource.url}")
     private String datasourceUrl;
@@ -27,6 +25,7 @@ class PrimeServiceTest {
 
     @Test
     void logDBConnection() {
+        environment = new StandardEnvironment();
         System.out.println("Database URL: " + datasourceUrl);
         System.out.println("Database URL: " + environment.getProperty("spring.datasource.url"));
         System.out.println("Database username: " + datasourceUsername);
