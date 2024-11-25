@@ -6,13 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class PrimeServiceApplication {
-	@Value("${spring.datasource.url}")
-	private static String datasourceUrl;
+
 
 	public static void main(String[] args) {
-		System.out.println("Database URL: " + datasourceUrl);
-
-
 		SpringApplication.run(PrimeServiceApplication.class, args);
 	}
 

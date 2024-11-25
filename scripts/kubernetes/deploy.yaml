@@ -24,7 +24,7 @@ spec:
         imagePullPolicy: IfNotPresent
         envFrom:
           - secretRef:
-              name: postgres-secrets
+              name: postgres-primes-secrets
 
 
 ---
@@ -45,7 +45,7 @@ spec:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: postgres-secrets
+  name: postgres-primes-secrets
 stringData:
   SPRING_DATASOURCE_PASSWORD: $SPRING_DATASOURCE_PW
   SPRING_DATASOURCE_USERNAME: $SPRING_DATASOURCE_UN
