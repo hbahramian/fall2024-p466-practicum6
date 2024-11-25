@@ -10,6 +10,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @Component
 class PrimeServiceTest {
 
+    public PrimeServiceTest(Environment environment) {
+        this.environment = environment;
+    }
+
     @Value("${spring.datasource.url}")
     private String datasourceUrl;
 
@@ -19,7 +23,6 @@ class PrimeServiceTest {
     @Value("${spring.datasource.password}")
     private String datasourcePassword;
 
-    @Autowired
     private Environment environment;
 
     @Test
