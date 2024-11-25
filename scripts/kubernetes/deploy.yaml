@@ -22,9 +22,7 @@ spec:
       - name: prime-service
         image: $CONTAINER_REGISTRY/prime-service:$VERSION
         imagePullPolicy: IfNotPresent
-        envFrom:
-          - secretRef:
-              name: postgres-primes-secrets
+
 
 
 ---
