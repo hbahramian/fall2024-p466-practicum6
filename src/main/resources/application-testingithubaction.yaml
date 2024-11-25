@@ -38,7 +38,7 @@ logging:
     org.springframework.boot.autoconfigure.jdbc: DEBUG
     com:
       zaxxer:
-        hikari=DEBUG
+        hikari: DEBUG
 
 
 
