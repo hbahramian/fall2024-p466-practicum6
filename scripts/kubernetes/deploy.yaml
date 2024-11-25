@@ -46,15 +46,6 @@ spec:
       port: 80
       targetPort: 8085
 
-
-
-
-
-
-
-
-
-
 ---
 apiVersion: v1
 kind: Secret

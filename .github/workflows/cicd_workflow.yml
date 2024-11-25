@@ -53,29 +53,29 @@ jobs:
       #
       # Build the Docker image.
       #
-      - name: Build the image
-        run: ./scripts/build-image.sh
+#      - name: Build the image
+#        run: ./scripts/build-image.sh
 
       #
       # Publish the Docker image to Github container registry.
       #
-      - name: Publish to Github container registry
-        run: ./scripts/push-to-ghcr.sh
+#      - name: Publish to Github container registry
+#        run: ./scripts/push-to-ghcr.sh
       #
       # Publish the Docker image to Azure container registry.
       #
-      - name: Publish to Azure container registry
-        run: ./scripts/push-to-acr.sh
+#      - name: Publish to Azure container registry
+#        run: ./scripts/push-to-acr.sh
 
 
       # Install Kubectl and connects it to the cluster.
       # https://github.com/marketplace/actions/kubernetes-cli-kubectl
-      - uses: tale/kubectl-action@v1
-        with:
-             base64-kube-config: ${{ secrets.KUBE_CONFIG }}
+#      - uses: tale/kubectl-action@v1
+#        with:
+#             base64-kube-config: ${{ secrets.KUBE_CONFIG }}
 
       #
       # Expands the configuration template and deploys the microservice.
       #
-      - name: Deploy
-        run: ./scripts/deploy.sh
+#      - name: Deploy
+#        run: ./scripts/deploy.sh
