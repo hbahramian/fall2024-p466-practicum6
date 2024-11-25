@@ -11,7 +11,7 @@ public class DatabaseConnectionLogger {
     @Value("${spring.datasource.url}")
     private String datasourceUrl;
 
-    @PostConstruct
+   @PostConstruct
     public void logDatabaseConnection() {
         System.out.println("Database URL: " + datasourceUrl);
     }
