@@ -1,8 +1,9 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5001/primes
-    username: postgres
-    password: password
+    username: admin2024
+    password: p4662024!
+
   devtools:
     restart:
       poll-interval: 2s
@@ -12,12 +13,10 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-
   sql:
     init:
       mode: always
       continue-on-error: true
-
 
 
   rabbitmq:
@@ -28,8 +27,3 @@ spring:
 
 server:
   port: 8085
-
-
-
-
-

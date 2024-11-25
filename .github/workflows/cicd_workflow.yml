@@ -9,8 +9,8 @@ jobs:
       postgres_db:
         image: postgres
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: admin2024
+          POSTGRES_PASSWORD: p4662024!
           POSTGRES_DB: primes
         ports:
           - 5001:5432
