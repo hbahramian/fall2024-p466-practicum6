@@ -22,7 +22,7 @@ set -u # or set -o nounset
 
 
 
-envsubst < ./scripts/kubernetes/deploy.yaml | kubectl delete -f -
+#envsubst < ./scripts/kubernetes/deploy.yaml | kubectl delete -f -
 
 
 envsubst < ./scripts/kubernetes/deploy.yaml | kubectl apply -f -
