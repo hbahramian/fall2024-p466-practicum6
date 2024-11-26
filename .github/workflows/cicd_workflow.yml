@@ -22,9 +22,9 @@ jobs:
       CONTAINER_REGISTRY_UN: ${{ secrets.CONTAINER_REGISTRY_UN }}
       CONTAINER_REGISTRY_PW: ${{ secrets.CONTAINER_REGISTRY_PW  }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN  }}
-      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL  }}
-      SPRING_DATASOURCE_UN: ${{ secrets.SPRING_DATASOURCE_UN  }}
-      SPRING_DATASOURCE_PW: ${{ secrets.SPRING_DATASOURCE_PW  }}
+      DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL  }}
+      DATASOURCE_UN: ${{ secrets.SPRING_DATASOURCE_UN  }}
+      DATASOURCE_PW: ${{ secrets.SPRING_DATASOURCE_PW  }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
