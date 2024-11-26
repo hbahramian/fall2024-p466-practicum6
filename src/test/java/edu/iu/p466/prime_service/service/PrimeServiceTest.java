@@ -10,30 +10,6 @@ import org.springframework.stereotype.Component;
 import static org.junit.jupiter.api.Assertions.*;
 class PrimeServiceTest {
 
-
-
-    @Value("${spring.datasource.url}")
-    private String datasourceUrl;
-
-    @Value("${spring.datasource.username}")
-    private String datasourceUsername;
-
-    @Value("${spring.datasource.password}")
-    private String datasourcePassword;
-
-    private Environment environment;
-
-    @Test
-    void logDBConnection() {
-        environment = new StandardEnvironment();
-        System.out.println("Database URL: " + datasourceUrl);
-        System.out.println("Database URL: " + environment.getProperty("spring.datasource.url"));
-        System.out.println("Database username: " + datasourceUsername);
-        System.out.println("Database username: " + environment.getProperty("spring.datasource.username"));
-        System.out.println("Database password: " + datasourcePassword);
-        System.out.println("Database password: " + environment.getProperty("spring.datasource.password"));
-    }
-
     @Test
     void _45IsNotPrime() {
         PrimeService primeService = new PrimeService();

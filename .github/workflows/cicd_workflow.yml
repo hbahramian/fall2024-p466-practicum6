@@ -41,7 +41,7 @@ jobs:
 
 
       - name: Run the unit tests
-        run: ./mvnw  test -Dspring.profiles.active="unittestingithubaction" --batch-mode -Dmaven.test.failure.ignore=true
+        run: ./mvnw  test -Dspring.profiles.active="githubaction" --batch-mode -Dmaven.test.failure.ignore=true
 
       - name: Report the result of the unit tests
         uses: dorny/test-reporter@v1
