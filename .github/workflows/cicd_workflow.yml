@@ -36,13 +36,11 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
 
-      - name: Build the package
-        run: ./mvnw  --batch-mode -DskipTests package
+
 
 
       - name: Run the unit tests
-        run: |
-          export spring_profiles_active=githubaction
+        run: |         
           ./mvnw -Dspring.profiles.active=githubaction --batch-mode -Dmaven.test.failure.ignore=true  test
 
       - name: Report the result of the unit tests
@@ -54,6 +52,8 @@ jobs:
           reporter: java-junit
           fail-on-error: true
 
+      - name: Build the package
+        run: ./mvnw  --batch-mode -DskipTests package
             
       #
       # Build the Docker image.
