@@ -42,7 +42,7 @@ jobs:
 
       - name: Run the unit tests
         run: |
-          export MAVEN_OPTS="-Dspring.profiles.active=githubaction"
+          export spring_profiles_active=githubaction
           ./mvnw -Dspring.profiles.active=githubaction --batch-mode -Dmaven.test.failure.ignore=true  test
 
       - name: Report the result of the unit tests
