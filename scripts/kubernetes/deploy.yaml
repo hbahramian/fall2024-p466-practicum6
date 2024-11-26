@@ -22,6 +22,9 @@ spec:
       - name: prime-service
         image: $CONTAINER_REGISTRY/prime-service:$VERSION
         imagePullPolicy: Always
+        envFrom:
+          - secretRef:
+              name: postgres-primes-secrets
         resources:
           requests:
             memory: "256Mi"
@@ -52,6 +55,6 @@ kind: Secret
 metadata:
   name: postgres-primes-secrets
 stringData:
-  SPRING_DATASOURCE_PASSWORD: $DATASOURCE_PW
-  SPRING_DATASOURCE_USERNAME: $DATASOURCE_UN
-  SPRING_DATASOURCE_URL: $DATASOURCE_URL
+  DATASOURCE_PASSWORD: $DATASOURCE_PW
+  DATASOURCE_USERNAME: $DATASOURCE_UN
+  DATASOURCE_URL: $DATASOURCE_URL
