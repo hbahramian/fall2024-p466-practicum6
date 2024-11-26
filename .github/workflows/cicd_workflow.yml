@@ -42,7 +42,11 @@ jobs:
 
       - name: Run the unit tests
         run: |          
-          ./mvnw -Dspring.profiles.active=test --batch-mode -Dmaven.test.failure.ignore=true  test
+          ./mvnw --batch-mode -Dmaven.test.failure.ignore=true  test
+        env:
+          SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5001/primes
+          SPRING_DATASOURCE_USERNAME: admin2024
+          SPRING_DATASOURCE_PASSWORD: p4662024!
 
       - name: Report the result of the unit tests
         uses: dorny/test-reporter@v1
