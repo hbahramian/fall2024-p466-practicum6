@@ -34,3 +34,6 @@ build/
 
 ### act secrets ###
 .actrc
+
+### run the application
+.run-test.sh
