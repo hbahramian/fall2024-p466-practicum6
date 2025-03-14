@@ -53,7 +53,7 @@ public class SecurityConfig {
                 .csrf(x -> x.disable())
                 .authorizeHttpRequests( auth -> auth
                         .requestMatchers(
-                                HttpMethod.POST,"/register", "/login").permitAll()
+                                HttpMethod.POST,"/auth/register", "/auth/login").permitAll()
                         .requestMatchers(
                                 HttpMethod.GET,"/").permitAll()
                         .anyRequest().authenticated()

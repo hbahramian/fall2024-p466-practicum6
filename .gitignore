@@ -37,3 +37,6 @@ build/
 
 ### run the application
 .run-test.sh
+
+### github secrets
+.update-github-secrets.sh
