@@ -1,9 +1,13 @@
 package edu.iu.p466.prime_service.service;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.StandardEnvironment;
+import org.springframework.stereotype.Component;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 class PrimeServiceTest {
 
     @Test

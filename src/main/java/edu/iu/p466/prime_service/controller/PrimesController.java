@@ -26,7 +26,7 @@ public class PrimesController {
     @GetMapping
     public String greetings() {
         logger.info("in PrimesController greetings");
-        return "Welcome to the PrimesController!";
+        return "Welcome to the the primes-service!";
     }
 
     @GetMapping("/{n}")
